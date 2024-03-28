@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const postsList = document.getElementsByClassName('single-post');
     for(let i = 0; i < postsList.length; i++){
         let post = postsList[i];
-        if(post.getAttribute('data-type') == 'image'){
+        if(post.dataset.type == 'image'){
             hideImg(post);
             const showImg = createShowImageElement(post);
             const changeImg = createChangeImageElement(post);
@@ -57,8 +57,7 @@ function createReadMoreElement(){
     readMoreElement.textContent = "Visualizza i post";
     readMoreElement.href = "#";
 
-    readMoreElement.style.color = "var(--custom-white)";
-    readMoreElement.style.margin = "40px auto";
+    readMoreElement.classList.add("a-margin", "a-custom-white");
 
     readMoreElement.addEventListener("click", function(){
         this.textContent = togglePostContent() ? "Visualizza i post" : "Nascondi i post";
@@ -72,8 +71,7 @@ function createShowImageElement(element){
     showImgElement.textContent = "Mostra immagine";
     showImgElement.href = "#";
 
-    showImgElement.style.color = "var(--custom-white)";
-    showImgElement.style.margin = "40px auto";
+    showImgElement.classList.add("a-margin", "a-custom-white");
 
     showImgElement.addEventListener("click", function(){
         let imgElement = element.querySelector(".post-image img");
@@ -88,7 +86,7 @@ function createChangeImageElement(element){
     changeImgElement.textContent = "Passa all' altra immagine";
     changeImgElement.href = "#";
 
-    changeImgElement.style.color = "var(--custom-white)";
+    changeImgElement.classList.add("a-custom-white");
 
     changeImgElement.addEventListener("click", function(){
         let imgElement = element.querySelector(".post-image img");

@@ -10,7 +10,13 @@
     --navbar-color-for-blur: rgba(16, 16, 16, 0.85);
 }
 
+.a-margin {
+    margin: 40px auto;
+}
 
+.a-custom-white {
+    color: var(--custom-white);
+}
 
 body{
     margin: 0px;
