@@ -34,8 +34,9 @@ function togglePostContent(){
     let contentHidden = true;
     for(let i = 0; i < postsList.length; i++){
         let post = postsList[i];
-        post.style.display = post.style.display == "none" ? "flex" : "none";
-        contentHidden = post.style.display == "none" ? true : false;
+        toggleFlexElement(post);
+        
+        contentHidden = post.classList.contains("d-none");
     }
     return contentHidden;
 }
@@ -43,13 +44,13 @@ function togglePostContent(){
 function hideContent(element){
     const postsList = element.getElementsByClassName('single-post');
     for(let i = 0; i < postsList.length; i++){
-        postsList[i].style.display = "none";
+        postsList[i].classList.add("d-none");
     }
 }
 
 function hideImg(element){
     let imgElement = element.querySelector(".post-image img");
-    imgElement.style.display = "none";
+    imgElement.classList.add("d-none");
 }
 
 function createReadMoreElement(){
@@ -97,8 +98,25 @@ function createChangeImageElement(element){
 }
 
 function toggleBlockElement(element){
-    element.style.display = element.style.display == "none" ? "block" : "none";
-    return element.style.display == "none";
+    if(element.classList.contains("d-none")){
+        element.classList.remove("d-none");
+        element.classList.add("d-block");
+    }else{
+        element.classList.remove("d-block");
+        element.classList.add("d-none"); 
+    }
+    return element.classList.contains("d-none");
+}
+
+function toggleFlexElement(element){
+    if(element.classList.contains("d-none")){
+        element.classList.remove("d-none");
+        element.classList.add("d-flex");
+    }else{
+        element.classList.remove("d-flex");
+        element.classList.add("d-none");
+    }
+    return element.classList.contains("d-none");
 }
 
 function toggleLike(element){

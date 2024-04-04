@@ -348,6 +348,18 @@ header {
     fill: red;
 }
 
+.d-none{
+    display: none;
+}
+
+.d-block{
+    display: block;
+}
+
+.d-flex{
+    display: flex;
+}
+
 /*MEDIA QUERIES*/
 @media screen and (max-width: 730px) {
 
